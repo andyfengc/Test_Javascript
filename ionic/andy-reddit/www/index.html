@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+  <body ng-app="redditApp" ng-controller="redditController">
+
+    <ion-pane>
+      <ion-header-bar class="bar-positive">
+        <h1 class="title">Andy's reddit</h1>
+      </ion-header-bar>
+      <ion-content>
+          <div class="list">
+              <div class="item" ng-repeat="story in stories">
+                  <a href="{{story.url}}" target="_blank" on-hold="onHold(story.title)">{{story.title}}</a> 
+                  <p>{{story.domain}}</p>
+              </div>
+          </div>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>

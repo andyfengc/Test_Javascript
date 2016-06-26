@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="selectApp">
+<head>
+	<title>select test</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" >
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-select.css">
+   <link rel="stylesheet" href="app.css">
+    </head>
+    
+<body ng-controller="selectController">
+
+<div class="container" >
+   <p>jquery selection</p>
+    <select name="country" id="country" size="8">
+        <option value="1">US</option>
+        <option value="2">Canada</option>
+        <option value="3">India</option>
+        <option value="4">China</option>
+        <option value="5">Japan</option>
+        <option value="6">British</option>
+    </select>
+    <p id="result1"></p>
+    <hr>
+    
+    <p>angular selection</p>
+    <select name="country2" id="country2" size="8" ng-model="country2" ng-change="changeCountry()" class="selectpicker">
+        <option value="1">US</option>
+        <option value="2">Canada</option>
+        <option value="3">India</option>
+        <option value="4">China</option>
+        <option value="5">Japan</option>
+        <option value="6">British</option>
+    </select>
+    <input type="text" ng-model="result2"> 
+    <input type="text" ng-model="result22"> 
+    <hr>
+    
+    <p>angular selection 2</p>
+    <select name="color" id="color" size="8" ng-model="color" ng-change="changeColor()" class="selectpicker">
+        
+        <option value="1">US</option>
+        <option value="2">Canada</option>
+        <option value="3">India</option>
+        <option value="4">China</option>
+        <option value="5">Japan</option>
+        <option value="6">British</option>
+    </select>
+    <input type="text" ng-model="result3"> 
+    <input type="text" ng-model="result33"> 
+    <hr>
+    
+</div> 
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap-select.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
