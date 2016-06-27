@@ -2,7 +2,6 @@ var redditApp = angular.module('redditApp');
 
 redditApp.controller('redditController', ['$scope', '$http', 'appSettings', function ($scope, $http, appSettings) {
     $scope.stories = [];
-
     $scope.loadOlder = function () {
         var params = {};
         if ($scope.stories.length > 0) {
@@ -65,6 +64,10 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', func
             }
         });
         return count;
+    }
+    
+    $scope.updateSettings = function(){
+        
     }
 
     }])

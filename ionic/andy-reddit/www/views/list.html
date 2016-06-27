@@ -1,0 +1,22 @@
+<ion-view view-title="Andy's reddit ({{getUnreadCount()}} / {{stories.length}})"  ng-controller="redditController">
+   <ion-nav-buttons class="bar-stable bar">
+       <a href="#/settings" class="button button-stable icon-left ion-android-settings"></a>
+       <button class="button button-stable icon-left ion-settings" ng-click="updateSettings()"></button>
+   </ion-nav-buttons>
+    <ion-content style="overflow-scroll='false'">
+            <ion-refresher pulling-text="Pull to refresh..." on-refresh="loadNewer()">
+            </ion-refresher>
+            <div class="list">
+                <a class="item item-thumbnail-left" ng-repeat="story in stories track by story.id" ng-click="openStory(story)">
+                    <img ng-src="{{story.thumbnail}}" alt="" ng-if="story.thumbnail.indexOf('http') == 0">
+                    <h2 class="story-title" ng-class="{unread: story.unread}">{{story.title}}</h2>
+                    <div>
+                        <p>
+                            <span am-time-ago="story.created_utc" am-preprocess="unix"></span> - {{story.domain}}</p>
+                    </div>
+                </a>
+            </div>
+            <ion-infinite-scroll on-infinite="loadOlder()" distance="1%">
+            </ion-infinite-scroll>
+        </ion-content>
+</ion-view>

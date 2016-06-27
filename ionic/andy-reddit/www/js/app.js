@@ -18,5 +18,17 @@
                 StatusBar.styleDefault();
             }
         });
-    })
+    });
+    
+    redditApp.config(function($stateProvider, $urlRouterProvider){
+       $stateProvider.state('list', {
+           url: '/list',
+           templateUrl: 'views/list.html'
+       });
+       $stateProvider.state('settings', {
+           url: '/settings',
+           templateUrl: 'views/settings.html'
+       })
+       $urlRouterProvider.otherwise('/list');
+    });
 })();
