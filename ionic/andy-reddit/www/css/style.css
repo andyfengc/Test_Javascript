@@ -1,1 +1,11 @@
 /* Empty. Add your own CSS if you like */
+ion-content h2.story-title{
+    white-space: normal;
+    height: 3.5em;
+}
+ion-content h2.unread{
+    font-weight: bold;
+}
+ion-content h2.read{
+    color: darkgrey;
+}

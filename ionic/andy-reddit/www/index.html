@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    
+
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
     <script src="cordova.js"></script>
+
     <script src="js/app.js"></script>
+    <script src="js/appSettings.js"></script>
     <script src="js/controllers.js"></script>
-  </head>
-  <body ng-app="redditApp" ng-controller="redditController">
+</head>
+
+<body ng-app="redditApp" ng-controller="redditController">
 
     <ion-pane>
-      <ion-header-bar class="bar-positive">
-        <h1 class="title">Andy's reddit</h1>
-      </ion-header-bar>
-      <ion-content>
-          <div class="list">
-              <div class="item" ng-repeat="story in stories">
-                  <a href="{{story.url}}" target="_blank" on-hold="onHold(story.title)">{{story.title}}</a> 
-                  <p>{{story.domain}}</p>
-              </div>
-          </div>
-      </ion-content>
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">Andy's reddit ({{getUnreadCount()}} / {{stories.length}})</h1>
+        </ion-header-bar>
+        <ion-content style="overflow-scroll='false'">
+            <ion-refresher pulling-text="Pull to refresh..." on-refresh="loadNewer()">
+            </ion-refresher>
+            <div class="list">
+                <a class="item item-thumbnail-left" ng-repeat="story in stories track by story.id" ng-click="openStory(story)">
+                    <img ng-src="{{story.thumbnail}}" alt="" ng-if="story.thumbnail.indexOf('http') == 0">
+                    <h2 class="story-title" ng-class="{unread: story.unread}">{{story.title}}</h2>
+                    <div>
+                        <p>
+                            <span am-time-ago="story.created_utc" am-preprocess="unix"></span> - {{story.domain}}</p>
+                    </div>
+                </a>
+            </div>
+            <ion-infinite-scroll on-infinite="loadOlder()" distance="1%">
+            </ion-infinite-scroll>
+        </ion-content>
     </ion-pane>
-  </body>
+</body>
+
 </html>
