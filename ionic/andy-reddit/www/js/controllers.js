@@ -2,6 +2,16 @@ var redditApp = angular.module('redditApp');
 
 redditApp.controller('redditController', ['$scope', '$http', 'appSettings', function ($scope, $http, appSettings) {
     $scope.stories = [];
+    $scope.subscribedChannels = angular.fromJson(window.localStorage["subscribedChannels"]);
+    
+    $scope.init = function () {
+        console.log($scope.subscribedChannels);
+        if ($scope.subscribedChannels == undefined || $scope.subscribedChannels.length == 0) {
+            alert('please subsribe channels first');
+        }
+    }
+    $scope.init();
+    
     $scope.loadOlder = function () {
         var params = {};
         if ($scope.stories.length > 0) {
@@ -9,7 +19,7 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', func
         }
         refresh(params, function (stories) {
             $scope.stories = $scope.stories.concat(stories);
-            $scope.$broadcast("scroll.infiniteScrollComplete");
+            $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     }
 
@@ -25,7 +35,13 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', func
 
     function refresh(params, callback) {
         var stories = [];
-        $http.get(appSettings.channels.internet, {
+        if ($scope.subscribedChannels != undefined && $scope.subscribedChannels.length > 0){
+            for(var channel in $scope.subscribedChannels){
+                console.log(channel.name);
+            }
+        }
+        //todo, loop subsribed channels
+        $http.get(appSettings.channels[0].url, {
                 params: params
             })
             .success(function (response) {
@@ -33,10 +49,10 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', func
                 //$scope.stories = response.data.children;
                 angular.forEach(response.data.children, function (child) {
                     var story = child.data;
-                    if (!story.thumbnail || story.thumbnail == 'self' || story.thumbnail == ''){
+                    if (!story.thumbnail || story.thumbnail == 'self' || story.thumbnail == '') {
                         story.thumbnail = 'http://www.redditstatic.com/icon.png';
                     }
-                    story.unread = true;// set unread
+                    story.unread = true; // set unread
                     stories.push(story);
                 });
                 callback(stories);
@@ -52,22 +68,25 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', func
     $scope.onHold = function (title) {
         console.log("you pressed " + title);
     };
-    $scope.openStory = function(story){
+    $scope.openStory = function (story) {
         window.open(story.url, "_blank");
         story.unread = false;
     }
-    $scope.getUnreadCount = function(){
+    $scope.getUnreadCount = function () {
         var count = 0;
-        angular.forEach($scope.stories, function(story, key){
-            if (story.unread){
+        angular.forEach($scope.stories, function (story, key) {
+            if (story.unread) {
                 count++;
             }
         });
         return count;
     }
-    
-    $scope.updateSettings = function(){
-        
+
+    $scope.updateSettings = function () {
+
+    }
+    $scope.save = function () {
+        window.localStorage["stories"] = angular.toJson($scope.stories);
     }
 
     }])
