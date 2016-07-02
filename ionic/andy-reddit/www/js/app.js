@@ -19,16 +19,20 @@
             }
         });
     });
-    
-    redditApp.config(function($stateProvider, $urlRouterProvider){
-       $stateProvider.state('list', {
-           url: '/list',
-           templateUrl: 'views/list.html'
-       });
-       $stateProvider.state('settings', {
-           url: '/settings',
-           templateUrl: 'views/settings.html'
-       })
-       $urlRouterProvider.otherwise('/list');
+
+    redditApp.config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider.state('list', {
+            url: '/list',
+            templateUrl: 'views/list.html'
+        });
+        $stateProvider.state('settings', {
+            url: '/settings',
+            templateUrl: 'views/settings.html'
+        });
+        $stateProvider.state('test', {
+            url: "/test",
+            templateUrl: 'views/test.html'
+        });
+        $urlRouterProvider.otherwise('/list');
     });
 })();
