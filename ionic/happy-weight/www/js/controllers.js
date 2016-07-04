@@ -6,8 +6,4 @@ weightApp.controller("appController", ['$scope', '$log', function($scope, $log){
 
 .controller("addController", ['$scope', '$log', function($scope, $log){
     $log.debug("start add controller");
-}])
-
-.controller("reportController", ['$scope', '$log', function($scope, $log){
-    $log.debug("start report controller");
 }]);
