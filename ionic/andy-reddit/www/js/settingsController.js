@@ -29,7 +29,9 @@ redditApp.controller('settingsController', ['$scope', 'appSettings', '$window', 
     $scope.init();
 
     $scope.save = function(){
+        // reset subscribed channels
         $scope.subscribedChannels = [];
+        // set subscribed channels
         for (var key in $scope.channels){
             var channel = $scope.channels[key];
             if (channel.checked){
@@ -37,11 +39,12 @@ redditApp.controller('settingsController', ['$scope', 'appSettings', '$window', 
                 $scope.subscribedChannels.push(channel);
             }
         }
-        // save
+        // save subscribed channels
         window.localStorage['subscribedChannels'] = angular.toJson($scope.subscribedChannels);
         $log.debug("you saved channels: " + $scope.subscribedChannels);
         // return
         window.location.href="#/list";
         $window.location.reload(true);
     }
+    
 }]);

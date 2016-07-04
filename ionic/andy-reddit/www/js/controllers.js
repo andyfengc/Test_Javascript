@@ -1,17 +1,34 @@
 var redditApp = angular.module('redditApp');
 
 redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$log', function ($scope, $http, appSettings, $log) {
+    // listed stories
     $scope.stories = [];
+    // read stories
+    $scope.readStoryIds = angular.fromJson(window.localStorage["readStoryIds"]) || [];
+    // subscribed channels
     $scope.subscribedChannels = angular.fromJson(window.localStorage["subscribedChannels"]);
+    // the channel count to download stories
     var refreshTotalCount = 0;
+    // the channel count which already downloaded stories
     var refreshCompletedCount = 0;
 
+    $scope.refreshRead = function () {
+        for (var key in $scope.stories) {
+            var story = $scope.stories[key];
+            if ($scope.readStoryIds.indexOf(story.id) != -1) {
+                story.unread = false;
+            }
+        }
+    }
+    
     $scope.init = function () {
         console.log($scope.subscribedChannels);
         if ($scope.subscribedChannels == undefined || $scope.subscribedChannels.length == 0) {
             alert('please subsribe channels first');
         }
+        $scope.refreshRead();
     }
+
     $scope.init();
 
     $scope.loadOlder = function () {
@@ -22,9 +39,10 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$lo
         refresh(params, function (stories) {
             $scope.stories = $scope.stories.concat(stories);
             refreshCompletedCount++;
+            $scope.refreshRead();
             if (refreshCompletedCount == refreshTotalCount) {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
-                refreshCompletedCount = 0;
+                refreshCompletedCount = 0; // reset
             }
         });
     }
@@ -36,15 +54,20 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$lo
         refresh(params, function (stories) {
             $scope.stories = stories.concat($scope.stories);
             refreshCompletedCount++;
+            $scope.refreshRead();
             if (refreshCompletedCount == refreshTotalCount) {
                 $scope.$broadcast('scroll.refreshComplete');
-                refreshCompletedCount = 0;
+                refreshCompletedCount = 0; // reset
             }
         });
     }
 
-    function fireRefreshStartedEvent(count) {
-        refreshCount = count;
+    // save read stories
+    $scope.save = function (story) {
+        if ($scope.readStoryIds.indexOf(story.id) == -1) {
+            $scope.readStoryIds.push(story.id);
+            window.localStorage["readStoryIds"] = angular.toJson($scope.readStoryIds);
+        }
     }
 
     function refresh(params, callback) {
@@ -97,7 +120,9 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$lo
     $scope.openStory = function (story) {
         window.open(story.url, "_blank");
         story.unread = false;
+        $scope.save(story);// save to read list
     }
+
     $scope.getUnreadCount = function () {
         var count = 0;
         angular.forEach($scope.stories, function (story, key) {
@@ -111,8 +136,7 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$lo
     $scope.updateSettings = function () {
 
     }
-    $scope.save = function () {
-        window.localStorage["stories"] = angular.toJson($scope.stories);
-    }
+
+
 
     }])
