@@ -1,5 +1,21 @@
 <ion-view title="Add weight">
     <ion-content>
-        add form
+        <h2>Select member:</h2>
+        <ion-radio ng-model="member" value="andy">Daddy</ion-radio>
+        <ion-radio ng-model="member" value="annie">Mommy</ion-radio>
+        <ion-radio ng-model="member" value="kevin">铁蛋</ion-radio>
+        <h2>Enter weight:</h2>
+        <label class="item item-input">
+            <input type="text" placeholder="weight" ng-model="weight">kg
+        </label>
+        <h2>Selecte date:</h2>
+        <label class="item item-input">
+            <input type="date" ng-model="date">
+        </label>
+        <p>{{add.weight}}</p>
+        <p>{{date}}</p>
+        <button class="button button-positive" ng-click="save()">
+            Save
+        </button>
     </ion-content>
 </ion-view>

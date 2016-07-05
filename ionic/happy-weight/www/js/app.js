@@ -39,6 +39,15 @@ weightApp.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state("app.manage", {
+            url: "/manage",
+            views: {
+                "menuContent": {
+                    templateUrl: "templates/manage.html",
+                    controller: "manageController"
+                }
+            }
+        })
         .state("app.report", {
             url: "/report",
             views: {
@@ -48,5 +57,5 @@ weightApp.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         });
-    $urlRouterProvider.otherwise('/add');
+    $urlRouterProvider.otherwise('/app/add');
 });

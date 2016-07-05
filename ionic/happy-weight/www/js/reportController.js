@@ -14,21 +14,33 @@ weightApp.directive("hcChart", function () {
     }
 });
 
-weightApp.controller("reportController", ['$scope', '$log', function ($scope, $log) {
+weightApp.controller("reportController", ['$scope', '$log', '$filter', function ($scope, $log, $filter) {
     $log.debug("start report controller");
-
+    var dates = [];
+    var weights = [];
+    
+    function init(){
+        var dataList = angular.fromJson(window.localStorage["weightList"] || []);
+        var dataList = $filter('orderBy')(dataList, 'date');
+        for (var key in dataList){
+            var data = dataList[key];
+            dates.push(data.date);
+            weights.push(Number(data.weight));
+        }
+    }
+    init();
+    
     // add data to the chart from user-defined directive
     $scope.chartOptions = {
         title: {
-            text: 'Temperature data'
+            text: 'Daddy weight'
         },
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: dates
         },
 
         series: [{
-            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            data: weights
                     }]
     };
 

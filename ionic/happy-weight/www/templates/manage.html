@@ -1,0 +1,10 @@
+<ion-view cache-view="false" title="Manage weight data">
+    <ion-content>
+        data list
+        <div class="list">
+            <div class="item" ng-repeat="data in dataList">
+                {{data.date}} {{data.member}} {{data.weight}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
