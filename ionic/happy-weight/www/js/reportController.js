@@ -20,7 +20,7 @@ weightApp.controller("reportController", ['$scope', '$log', '$filter', function 
     var weights = [];
     
     function init(){
-        var dataList = angular.fromJson(window.localStorage["weightList"] || []);
+        var dataList = getData();
         var dataList = $filter('orderBy')(dataList, 'date');
         for (var key in dataList){
             var data = dataList[key];
@@ -41,7 +41,7 @@ weightApp.controller("reportController", ['$scope', '$log', '$filter', function 
 
         series: [{
             data: weights
-                    }]
+        }]
     };
 
 }]);

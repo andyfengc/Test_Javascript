@@ -5,8 +5,10 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$lo
     $scope.stories = [];
     // read stories
     $scope.readStoryIds = angular.fromJson(window.localStorage["readStoryIds"]) || [];
+    $scope.stories = getStories();
     // subscribed channels
     $scope.subscribedChannels = angular.fromJson(window.localStorage["subscribedChannels"]);
+    $scope.settings = getSettings();
     // the channel count to download stories
     var refreshTotalCount = 0;
     // the channel count which already downloaded stories
@@ -71,7 +73,6 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$lo
     }
 
     function refresh(params, callback) {
-
         if ($scope.subscribedChannels == undefined || $scope.subscribedChannels.length == 0) {
             //alert('please subsribe channels first');
         } else {
@@ -136,7 +137,5 @@ redditApp.controller('redditController', ['$scope', '$http', 'appSettings', '$lo
     $scope.updateSettings = function () {
 
     }
-
-
 
     }])

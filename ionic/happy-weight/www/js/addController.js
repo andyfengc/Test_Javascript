@@ -2,7 +2,7 @@ var weightApp = angular.module("weightApp");
 
 weightApp.controller("addController", ['$scope', '$log', function ($scope, $log) {
     $log.debug("start add controller");
-    var dataList = angular.fromJson(window.localStorage["weightList"]) || []; 
+    var data = getData();
     
     $scope.save = function () {
         // here, $scope is parent scope
@@ -10,13 +10,14 @@ weightApp.controller("addController", ['$scope', '$log', function ($scope, $log)
         var member = this.member;
         var weight = this.weight;
         var date = this.date;
-        var data = {
+        var growth = {
             member: member,
             weight: weight,
             date: date
-        }
-        dataList.push(data);
-        window.localStorage["weightList"] = angular.toJson(dataList);
+        };
+        data.push(growth);
+        saveData(data);
+        
         alert("save successfully");
     }
 }]);
