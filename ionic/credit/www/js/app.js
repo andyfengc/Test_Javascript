@@ -25,26 +25,24 @@ creditApp.run(function ($ionicPlatform) {
 
 creditApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-//    .state('app',{
-//        url:'/app',
-//        templateUrl: 'templates/test.html',
-//        controller: 'testController'
-//    })
-        .state("app", {
-            url: "/app",
-            abstract: true,
-            templateUrl: "templates/menu.html",
-            controller: "appController"
+        .state('app',{
+            url:'/app',
+            templateUrl: 'templates/test.html',
+            controller: 'testController'
         })
-        .state("rule.add", {
-            url: "/add",
-            views: {
-                "menuContent": {
-                    templateUrl: "templates/add.html",
-                    controller: "addRuleController"
-                }
-            }
-        })
+    //        .state("app", {
+    //            url: "/app",
+    //            abstract: true,
+    //            templateUrl: "templates/menu.html",
+    //            controller: "appController"
+    //        })
+        .state("addRule", {
+            url: "/rules/add",
+            
+            templateUrl: "templates/add.html",
+            controller: "addRuleController"
+          
+    })
 //        .state("rule.manage", {
 //            url: "/rules/manage",
 //            views: {
@@ -54,5 +52,5 @@ creditApp.config(function ($stateProvider, $urlRouterProvider) {
 //                }
 //            }
 //        });
-    $urlRouterProvider.otherwise('/app/add');
+$urlRouterProvider.otherwise('/rules/add');
 });
