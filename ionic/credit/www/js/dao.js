@@ -1,8 +1,7 @@
-var getData = function(){
-    var dataList = angular.fromJson(window.localStorage["growthData"]) || []; 
-    return dataList;
-}
+var creditApp = angular.module('creditApp');
 
-var saveData = function(data){
-    window.localStorage["growthData"] = angular.toJson(data);
-}
+creditApp.service('creditDao', function(){
+    this.addCredit = function(){
+        console.log('add credit');
+    }    
+})
