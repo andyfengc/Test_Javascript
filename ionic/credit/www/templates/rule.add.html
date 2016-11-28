@@ -1,8 +1,14 @@
-<ion-view title='Add credit'>
+<ion-view title='{{isEdit? "Edit Rule" : "Add Rule"}}'>
     <ion-content>
-        <h2>add credit</h2>
-        <button class="button button-positive" ng-click="test()">
-            Save
+        <label for="" class="item item-input">
+            <input type="text" placeholder="credit name" ng-model="rule.creditName">
+        </label>
+        <label for="" class="item item-input">
+            <input type="number" placeholder="score" ng-model="rule.score">
+        </label>
+        <ion-checkbox ng-model="rule.isIncome">Is income</ion-checkbox>
+        <button class="button button-positive" ng-click="isEdit ? updateRule(rule) : addRule()">
+            {{isEdit? "Update" : "Add"}}
         </button>
     </ion-content>
 </ion-view>

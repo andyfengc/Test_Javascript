@@ -25,39 +25,47 @@ creditApp.run(function ($ionicPlatform) {
 
 creditApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-//        .state('app', {
-//            url: '/app',
-//            templateUrl: 'templates/test.html',
-//            controller: 'testController'
-//        })
-//                .state("app", {
-//                    url: "/app",
-//                    abstract: true,
-//                    templateUrl: "templates/menu.html",
-//                    controller: "appController"
-//                })
-        .state("addRule", {
-            url: "/rules/add",
-            templateUrl: "templates/rule.add.html",
-            controller: "addRuleController"
+        .state("app", {
+            url: "/app",
+            abstract: true,
+            templateUrl: "templates/menu.html",
+            controller: "appController"
         })
-//                .state("rule.manage", {
-//                    url: "/rules/add",
-//                    views: {
-//                        "menuContent": {
-//                            templateUrl: "templates/rule.add.html",
-//                            controller: "addRuleController"
-//                        }
-//                    }
-//                });
-        //        .state("rule.manage", {
-        //            url: "/rules/manage",
-        //            views: {
-        //                "menuContent": {
-        //                    templateUrl: "templates/rule.manage.html",
-        //                    controller: "manageRuleController"
-        //                }
-        //            }
-        //        });
-    $urlRouterProvider.otherwise('/rules/add');
+        .state("app.addRule", {
+            url: "/rules/add",
+            views: {
+                "menuContent": {
+                    templateUrl: "templates/rule.add.html",
+                    controller: "addRuleController"
+                }
+            }
+        })
+        .state("app.manageRule", {
+            url: "/rules/manage",
+            views: {
+                "menuContent": {
+                    templateUrl: "templates/rule.manage.html",
+                    controller: "manageRuleController"
+                }
+            }
+        })
+        .state("app.editRule", {
+            url: "/rules/:id",
+            views: {
+                "menuContent": {
+                    templateUrl: "templates/rule.add.html",
+                    controller: "editRuleController"
+                }
+            }
+        })
+        .state('app.add-credit', {
+            url: '/add-credit',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/add-credit.html',
+                    controller: 'addCreditController'
+                }
+            }
+        })
+    $urlRouterProvider.otherwise('/app/rules/add');
 });

@@ -1,0 +1,21 @@
+<ion-view title='Add credit'>
+    <ion-content>
+        <label for="" class="item item-input item-select">
+            <div class="input-label">
+                Credit name
+            </div>
+            <select name="" id="" ng-model='credit.creditName' ng-options="rule.creditName for rule in rules" ng-change='selectCredit(rule)'>
+
+            </select>
+        </label>
+        <label for="" class="item item-input">
+            <input type="text" readonly ng-model='credit.score' placeholder="score">
+        </label>
+        <label for="" class="item item-input">
+            <input type="number" placeholder="quantity" ng-model='credit.quantity'>
+        </label>
+        <button class="button button-positive">
+            Save
+        </button>
+    </ion-content>
+</ion-view>

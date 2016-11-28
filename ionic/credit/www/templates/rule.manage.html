@@ -1,5 +1,16 @@
-<ion-view cache-view="false" title='Manage credit'>
+<ion-view cache-view="false" title='Manage rule'>
     <ion-content>
-        <h2>manage credit</h2>
+        <ion-list>
+            <ion-list href="#/app/rules/{{rule._id}}" ng-repeat="rule in rules">
+                <ion-item>
+                    <p><b>Credit name:</b> {{rule.creditName}}</p>
+                    <p><b>Score:</b> {{ rule.score}}</p>
+                    <ion-option-button class="button button-assertive" ng-click="deleteRule(rule)">
+                        Delete
+                    </ion-option-button>
+                </ion-item>
+            </ion-list>
+
+        </ion-list>
     </ion-content>
 </ion-view>
