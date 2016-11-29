@@ -8,20 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var CoursesComponent = (function () {
-    function CoursesComponent() {
-        this.title = 'List of courses';
-        this.courses = ["C# programming", "Learn Java", "System design"];
+var core_1 = require("@angular/core");
+var authors_service_1 = require("./authors.service");
+var AuthorsComponent = (function () {
+    function AuthorsComponent(authorService) {
+        this.title = "List of authors";
+        this.authors = authorService.getAuthors();
     }
-    CoursesComponent = __decorate([
+    AuthorsComponent = __decorate([
         core_1.Component({
-            selector: 'courses',
-            template: "\n        <h1>{{title}}</h1>\n        <ul>\n            <li *ngFor=\"let course of courses\">{{course}}</li>\n        </ul>\n    "
+            selector: 'authors',
+            template: "\n        <h1>{{title}}</h1>\n        <ul>\n            <li *ngFor=\"let author of authors\">{{author}}</li>\n        </ul>\n    ",
+            providers: [authors_service_1.AuthorsService]
         }), 
-        __metadata('design:paramtypes', [])
-    ], CoursesComponent);
-    return CoursesComponent;
+        __metadata('design:paramtypes', [authors_service_1.AuthorsService])
+    ], AuthorsComponent);
+    return AuthorsComponent;
 }());
-exports.CoursesComponent = CoursesComponent;
-//# sourceMappingURL=courses.component.js.map
+exports.AuthorsComponent = AuthorsComponent;
+//# sourceMappingURL=authors.component.js.map

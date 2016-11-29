@@ -4,10 +4,13 @@ import {Component} from '@angular/core'
     selector: 'courses',
     template: `
         <h1>{{title}}</h1>
+        <ul>
+            <li *ngFor="let course of courses">{{course}}</li>
+        </ul>
     `
 })
 
 export class CoursesComponent{
     title = 'List of courses';
-    list = ['C# programming', "Learn Java", "System design"]
+    courses = ["C# programming", "Learn Java", "System design"]
 }
