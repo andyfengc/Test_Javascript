@@ -1,4 +1,4 @@
-import {Component} from "@angular/core"
+import {Component, Input} from "@angular/core"
 
 @Component({
     selector: "like",
@@ -6,11 +6,28 @@ import {Component} from "@angular/core"
         <i 
         class="glyphicon"
         [class.glyphicon-heart]="liked"
-        ></i>
-    `
+        [class.glyphicon-heart-empty]="!liked"
+        (click) = "like()"
+        ></i>{{count}}
+    `,
+    styles: [
+        `.glyphicon-heart{
+            color: pink
+          }`
+        ]
 })
 
 export class LikeComponent{
-
+    @Input() count = 10;
+    liked = false;
+    like(){
+        this.liked = !this.liked;
+        if (this.liked){
+            this.count++;
+        }
+        else{
+            this.count--;
+        }
+    }
 }
 

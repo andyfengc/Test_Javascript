@@ -7,6 +7,8 @@ import {Component} from '@angular/core'
         <courses></courses>
         <authors></authors>
         <favorite></favorite>
+        <like [count]="20"></like>
+        <rate [score]="30"></rate>
     `
 })
 export class AppComponent{
