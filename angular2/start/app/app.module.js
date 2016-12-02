@@ -16,13 +16,14 @@ var authors_component_1 = require('./authors.component');
 var favorite_component_1 = require('./favorite.component');
 var like_component_1 = require('./like.component');
 var rate_component_1 = require('./rate.component');
+var zippy_component_1 = require('./zippy.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, rate_component_1.RateComponent],
+            declarations: [app_component_1.AppComponent, courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, rate_component_1.RateComponent, zippy_component_1.ZippyComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

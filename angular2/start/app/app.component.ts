@@ -8,9 +8,12 @@ import {Component} from '@angular/core'
         <authors></authors>
         <favorite></favorite>
         <like [count]="20"></like>
-        <rate [score]="30"></rate>
+        <rate [score]="30" ></rate>
+        <zippy title="this is a zippy">zippy content....</zippy>
     `
 })
 export class AppComponent{
-    
+    onRate($event){
+        console.log('my rate: ' + JSON.stringify($event));
+    }
 }
