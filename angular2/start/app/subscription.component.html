@@ -1,0 +1,20 @@
+<form  style="border: 1px red solid;" (ngSubmit)="onSubmit(form)" #form="ngForm">
+	<div class="form-group">
+		<label for="">Name</label>
+		<input type="text" id="name" name="name" class="form-control" [(ngModel)]="name" #nameControl="ngModel" (change)="log(nameControl, form)" required>
+        <div class="alert alert-danger" *ngIf="!nameControl.valid" >Name is required</div>
+ 
+	</div>
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" id="email" class="form-control" required [(ngModel)]="email" name="email">
+    </div>
+    <div class="form-group">
+        <label for="">Subscribe</label>
+        <select name="subscribe" id="" class="form-control">
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+        </select>
+    </div>
+    <button class="btn btn-defalt" [disabled]="!form.valid">Submit</button>
+</form>
