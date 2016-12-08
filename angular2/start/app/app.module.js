@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var courses_component_1 = require('./courses.component');
 var authors_component_1 = require('./authors.component');
@@ -21,14 +22,29 @@ var rate_component_1 = require('./rate.component');
 var zippy_component_1 = require('./zippy.component');
 var subscription_component_1 = require('./subscription.component');
 var wiki_component_1 = require('./wiki.component');
+var blogs_component_1 = require('./blogs.component');
+var blog_component_1 = require('./blog.component');
+var appRoutes = [
+    { path: 'blogs', component: blogs_component_1.BlogsComponent },
+    { path: 'blogs/:year/:month', component: blog_component_1.BlogComponent }
+];
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule],
-            declarations: [app_component_1.AppComponent, courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, rate_component_1.RateComponent, zippy_component_1.ZippyComponent,
-                subscription_component_1.SubscriptionComponent, wiki_component_1.WikiComponent],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule, router_1.RouterModule.forRoot(appRoutes)],
+            declarations: [app_component_1.AppComponent,
+                courses_component_1.CoursesComponent,
+                authors_component_1.AuthorsComponent,
+                favorite_component_1.FavoriteComponent,
+                like_component_1.LikeComponent,
+                rate_component_1.RateComponent,
+                zippy_component_1.ZippyComponent,
+                subscription_component_1.SubscriptionComponent,
+                wiki_component_1.WikiComponent,
+                blogs_component_1.BlogsComponent,
+                blog_component_1.BlogComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

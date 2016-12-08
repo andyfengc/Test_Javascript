@@ -12,6 +12,7 @@ import { PostService } from './post.service'
         <zippy title="this is a zippy">zippy content....</zippy>
         <subscription-form></subscription-form>
         <wiki></wiki>
+        <router-outlet></router-outlet>
     `,
     providers: [PostService]
 })

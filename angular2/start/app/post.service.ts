@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core'
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map'
 import {Post} from './post.model'
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class PostService{

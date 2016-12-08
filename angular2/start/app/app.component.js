@@ -27,7 +27,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>Hello angular again</h1>\n        <courses></courses>\n        <authors></authors>\n        <favorite></favorite>\n        <like [count]=\"20\"></like>\n        <rate [score]=\"30\" ></rate>\n        <zippy title=\"this is a zippy\">zippy content....</zippy>\n        <subscription-form></subscription-form>\n        <wiki></wiki>\n    ",
+            template: "<h1>Hello angular again</h1>\n        <courses></courses>\n        <authors></authors>\n        <favorite></favorite>\n        <like [count]=\"20\"></like>\n        <rate [score]=\"30\" ></rate>\n        <zippy title=\"this is a zippy\">zippy content....</zippy>\n        <subscription-form></subscription-form>\n        <wiki></wiki>\n        <router-outlet></router-outlet>\n    ",
             providers: [post_service_1.PostService]
         }), 
         __metadata('design:paramtypes', [post_service_1.PostService])
