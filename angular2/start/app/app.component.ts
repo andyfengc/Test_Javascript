@@ -3,16 +3,13 @@ import { PostService } from './post.service'
 
 @Component({
     selector: 'my-app',
-    template: `<h1>Hello angular again</h1>
-        <courses></courses>
-        <authors></authors>
-        <favorite></favorite>
-        <like [count]="20"></like>
-        <rate [score]="30" ></rate>
+    template: `<h1>Hello angular</h1>
+        <navbar></navbar>
+        <router-outlet></router-outlet>
+
         <zippy title="this is a zippy">zippy content....</zippy>
         <subscription-form></subscription-form>
         <wiki></wiki>
-        <router-outlet></router-outlet>
     `,
     providers: [PostService]
 })

@@ -15,14 +15,24 @@ import {SubscriptionComponent} from './subscription.component'
 import {WikiComponent} from './wiki.component'
 import {BlogsComponent} from './blogs.component'
 import {BlogComponent} from './blog.component'
+import {NavbarComponent} from './nav/navbar.component'
 
 const appRoutes: Routes = [
   {path: 'blogs', component: BlogsComponent},
-  {path: 'blogs/:year/:month', component: BlogComponent}
+  {path: 'blogs/:year/:month', component: BlogComponent},
+  {path: 'courses', component: CoursesComponent},
+  {path: 'favorite', component: FavoriteComponent},
+  {path: 'like', component: LikeComponent},
+  {path: 'rate', component: RateComponent},
+  {path: 'zippy', component: ZippyComponent}
 ]
 
 @NgModule({
-  imports:      [BrowserModule, FormsModule, HttpModule, JsonpModule, RouterModule.forRoot(appRoutes)],
+  imports:      [BrowserModule
+    , FormsModule
+    , HttpModule
+    , JsonpModule
+    , RouterModule.forRoot(appRoutes)],
   declarations: [AppComponent
     , CoursesComponent
     , AuthorsComponent
@@ -33,7 +43,8 @@ const appRoutes: Routes = [
     , SubscriptionComponent
     , WikiComponent
     , BlogsComponent
-    , BlogComponent ],
+    , BlogComponent
+    , NavbarComponent ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

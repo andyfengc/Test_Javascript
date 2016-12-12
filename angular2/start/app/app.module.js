@@ -24,16 +24,26 @@ var subscription_component_1 = require('./subscription.component');
 var wiki_component_1 = require('./wiki.component');
 var blogs_component_1 = require('./blogs.component');
 var blog_component_1 = require('./blog.component');
+var navbar_component_1 = require('./nav/navbar.component');
 var appRoutes = [
     { path: 'blogs', component: blogs_component_1.BlogsComponent },
-    { path: 'blogs/:year/:month', component: blog_component_1.BlogComponent }
+    { path: 'blogs/:year/:month', component: blog_component_1.BlogComponent },
+    { path: 'courses', component: courses_component_1.CoursesComponent },
+    { path: 'favorite', component: favorite_component_1.FavoriteComponent },
+    { path: 'like', component: like_component_1.LikeComponent },
+    { path: 'rate', component: rate_component_1.RateComponent },
+    { path: 'zippy', component: zippy_component_1.ZippyComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule, router_1.RouterModule.forRoot(appRoutes)],
+            imports: [platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                http_1.HttpModule,
+                http_1.JsonpModule,
+                router_1.RouterModule.forRoot(appRoutes)],
             declarations: [app_component_1.AppComponent,
                 courses_component_1.CoursesComponent,
                 authors_component_1.AuthorsComponent,
@@ -44,7 +54,8 @@ var AppModule = (function () {
                 subscription_component_1.SubscriptionComponent,
                 wiki_component_1.WikiComponent,
                 blogs_component_1.BlogsComponent,
-                blog_component_1.BlogComponent],
+                blog_component_1.BlogComponent,
+                navbar_component_1.NavbarComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
