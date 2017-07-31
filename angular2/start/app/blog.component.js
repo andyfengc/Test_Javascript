@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var BlogComponent = (function () {
     function BlogComponent(router) {
         var _this = this;
@@ -19,14 +20,14 @@ var BlogComponent = (function () {
             _this.month = params['month'];
         });
     }
-    BlogComponent = __decorate([
-        core_1.Component({
-            selector: 'blog',
-            template: "\n        <h1>Blog details</h1>\n        <h2>year: {{year}}</h2>\n        <h2>month: {{month}}</h2>\n        <a [routerLink]=\"['/blogs']\">Back</a>\n    "
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
-    ], BlogComponent);
     return BlogComponent;
 }());
+BlogComponent = __decorate([
+    core_1.Component({
+        selector: 'blog',
+        template: "\n        <h1>Blog details</h1>\n        <h2>year: {{year}}</h2>\n        <h2>month: {{month}}</h2>\n        <a [routerLink]=\"['/blog']\">Back</a>\n    "
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute])
+], BlogComponent);
 exports.BlogComponent = BlogComponent;
 //# sourceMappingURL=blog.component.js.map

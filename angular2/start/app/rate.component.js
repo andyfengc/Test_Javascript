@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var RateComponent = (function () {
     function RateComponent() {
         this.score = 10;
@@ -31,25 +32,24 @@ var RateComponent = (function () {
         this.score--;
         this.rate.emit({ myRate: this.myRate });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], RateComponent.prototype, "score", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], RateComponent.prototype, "rate", void 0);
-    RateComponent = __decorate([
-        core_1.Component({
-            selector: 'rate',
-            template: "\n        <div class=\"rate\">\n            <i \n            class=\"glyphicon glyphicon-chevron-up\"\n            [class.highlighted]='isUp'\n            (click)=\"up()\"\n            ></i>\n            {{score}}\n            <i \n            class=\"glyphicon glyphicon-chevron-down\"\n            [class.highlighted]='isDown'\n            (click)=\"down()\"></i>\n        </div>\n    ",
-            styles: [
-                "\n        .rate{\n            width:20px;\n        }\n        .highlighted{\n            color: orange;\n            font-weight: bold;\n        }\n        "
-            ]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], RateComponent);
     return RateComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], RateComponent.prototype, "score", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], RateComponent.prototype, "rate", void 0);
+RateComponent = __decorate([
+    core_1.Component({
+        selector: 'rate',
+        template: "\n        <div class=\"rate\">\n            <i \n            class=\"glyphicon glyphicon-chevron-up\"\n            [class.highlighted]='isUp'\n            (click)=\"up()\"\n            ></i>\n            {{score}}\n            <i \n            class=\"glyphicon glyphicon-chevron-down\"\n            [class.highlighted]='isDown'\n            (click)=\"down()\"></i>\n        </div>\n    ",
+        styles: [
+            "\n        .rate{\n            width:20px;\n        }\n        .highlighted{\n            color: orange;\n            font-weight: bold;\n        }\n        "
+        ]
+    })
+], RateComponent);
 exports.RateComponent = RateComponent;
 //# sourceMappingURL=rate.component.js.map

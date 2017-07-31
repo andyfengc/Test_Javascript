@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var post_service_1 = require('./post.service');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var post_service_1 = require("./post.service");
 var AppComponent = (function () {
     function AppComponent(postService) {
         this.postService = postService;
@@ -24,15 +25,15 @@ var AppComponent = (function () {
     AppComponent.prototype.onRate = function ($event) {
         console.log('my rate: ' + JSON.stringify($event));
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "<h1>Hello angular</h1>\n        <navbar></navbar>\n        <router-outlet></router-outlet>\n\n        <zippy title=\"this is a zippy\">zippy content....</zippy>\n        <subscription-form></subscription-form>\n        <wiki></wiki>\n    ",
-            providers: [post_service_1.PostService]
-        }), 
-        __metadata('design:paramtypes', [post_service_1.PostService])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    core_1.Component({
+        selector: 'my-app',
+        template: "<h1>Hello angular</h1>\n        <navbar></navbar>\n        <router-outlet></router-outlet>\n\n        <zippy title=\"this is a zippy\">zippy content....</zippy>\n        <subscription-form></subscription-form>\n        <wiki></wiki>\n        <favorite [isFavorite]=\"true\"></favorite>\n    ",
+        providers: [post_service_1.PostService]
+    }),
+    __metadata("design:paramtypes", [post_service_1.PostService])
+], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

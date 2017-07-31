@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var LikeComponent = (function () {
     function LikeComponent() {
@@ -23,21 +24,20 @@ var LikeComponent = (function () {
             this.count--;
         }
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], LikeComponent.prototype, "count", void 0);
-    LikeComponent = __decorate([
-        core_1.Component({
-            selector: "like",
-            template: "\n        <i \n        class=\"glyphicon\"\n        [class.glyphicon-heart]=\"liked\"\n        [class.glyphicon-heart-empty]=\"!liked\"\n        (click) = \"like()\"\n        ></i>{{count}}\n    ",
-            styles: [
-                ".glyphicon-heart{\n            color: pink\n          }"
-            ]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], LikeComponent);
     return LikeComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], LikeComponent.prototype, "count", void 0);
+LikeComponent = __decorate([
+    core_1.Component({
+        selector: "like",
+        template: "\n        <i \n        class=\"glyphicon\"\n        [class.glyphicon-heart]=\"liked\"\n        [class.glyphicon-heart-empty]=\"!liked\"\n        (click) = \"like()\"\n        ></i>{{count}}\n    ",
+        styles: [
+            ".glyphicon-heart{\n            color: pink\n          }"
+        ]
+    })
+], LikeComponent);
 exports.LikeComponent = LikeComponent;
 //# sourceMappingURL=like.component.js.map

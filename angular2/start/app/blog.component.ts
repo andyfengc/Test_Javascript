@@ -7,7 +7,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
         <h1>Blog details</h1>
         <h2>year: {{year}}</h2>
         <h2>month: {{month}}</h2>
-        <a [routerLink]="['/blogs']">Back</a>
+        <a [routerLink]="['/blog']">Back</a>
     `
 })
 

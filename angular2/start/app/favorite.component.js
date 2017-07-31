@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var FavoriteComponent = (function () {
     function FavoriteComponent() {
@@ -16,14 +17,17 @@ var FavoriteComponent = (function () {
     FavoriteComponent.prototype.onClick = function () {
         this.isFavorite = !this.isFavorite;
     };
-    FavoriteComponent = __decorate([
-        core_1.Component({
-            selector: "favorite",
-            template: "\n        <i class=\"glyphicon\" \n        [class.glyphicon-star]=\"isFavorite\"\n        [class.glyphicon-star-empty]=\"!isFavorite\"\n        (click) =\"onClick()\"\n        ></i>\n    "
-        }), 
-        __metadata('design:paramtypes', [])
-    ], FavoriteComponent);
     return FavoriteComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], FavoriteComponent.prototype, "isFavorite", void 0);
+FavoriteComponent = __decorate([
+    core_1.Component({
+        selector: "favorite",
+        template: "\n        <i class=\"glyphicon\" \n        [class.glyphicon-star]=\"isFavorite\"\n        [class.glyphicon-star-empty]=\"!isFavorite\"\n        (click) =\"onClick()\"\n        ></i>\n    "
+    })
+], FavoriteComponent);
 exports.FavoriteComponent = FavoriteComponent;
 //# sourceMappingURL=favorite.component.js.map

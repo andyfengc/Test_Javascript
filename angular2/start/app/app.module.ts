@@ -17,9 +17,11 @@ import {BlogsComponent} from './blogs.component'
 import {BlogComponent} from './blog.component'
 import {NavbarComponent} from './nav/navbar.component'
 
+import {AutoGrowDirective} from './auto-grow.directive'
+
 const appRoutes: Routes = [
   {path: 'blogs', component: BlogsComponent},
-  {path: 'blogs/:year/:month', component: BlogComponent},
+  {path: 'blog/:year/:month', component: BlogComponent},
   {path: 'courses', component: CoursesComponent},
   {path: 'favorite', component: FavoriteComponent},
   {path: 'like', component: LikeComponent},
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
     , WikiComponent
     , BlogsComponent
     , BlogComponent
-    , NavbarComponent ],
+    , NavbarComponent
+    , AutoGrowDirective
+     ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
