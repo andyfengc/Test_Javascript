@@ -1,0 +1,19 @@
+{
+  "name": "start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o dist/js/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "watchify": "^3.9.0"
+  }
+}
