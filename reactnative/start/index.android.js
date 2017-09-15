@@ -1,15 +1,19 @@
 // import library
 import React from 'react';
-import { Text, AppRegistry } from 'react-native';
+import { Text, AppRegistry, View } from 'react-native';
 import Header from './src/components/header';
 import Footer from './src/components/footer';
 import Nav from './src/components/nav';
-import {Nav2} from './src/components/nav2';
+import { Nav2 } from './src/components/nav2';
+import { AlbumList } from './src/components/album-list';
 
 // create a component
 const App = () => {
   return (
-    <Header />
+    <View>
+    <Header title={'hh'}/>
+    <AlbumList></AlbumList>
+    </View>
   );
 };
 
