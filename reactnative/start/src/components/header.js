@@ -5,10 +5,11 @@ import Styles from '../utils/styles';
 
 // create component
 class Header extends Component{
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-  render(){
+
+  render() {
     return (
       <View style={Styles.headerView} >
         <Text style={Styles.headerText}>{this.props.title}</Text>
