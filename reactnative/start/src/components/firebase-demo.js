@@ -72,8 +72,8 @@ export class FirebaseDemo extends Component {
       <View>
         <Text>
           {this.state.title}
-          {this.state.tasks.map(task => {            
-            return <Text key={task.key}>{task.title}</Text>;
+          {this.state.tasks.map(task => {
+            return <Text key={task.key}>{task['.key']} - {task.title}</Text>;
           })}
 
         </Text>

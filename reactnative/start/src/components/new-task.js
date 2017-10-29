@@ -29,11 +29,12 @@ export class NewTask extends Component {
           tasks...
         </Text>
 
-        <Button title='add task' onPress={this.addTask}>
-        </Button>
+        <Button title='add task' onPress={this.addTask}></Button>
+        <Button title='delete task' onPress={this.deleteTask}></Button>
+        <Button title='update task' onPress={this.updateTask}></Button>
 
         {this.state.tasks.map( (task, index) => {
-                        return <Text key={index}>{task.title}</Text>;
+                        return <Text key={task['.key']}>{task['.key']} - {task.title}</Text>;
                       })}
       </View>
     )
@@ -60,6 +61,14 @@ export class NewTask extends Component {
     task.title = '找接送2';
     NewTask.taskService.addTask(task, '1');
     console.log('added');
+  }
+
+  deleteTask() {
+    NewTask.taskService.deleteTask('-KvPDoLQsvMTvVGzfWRD');
+  }
+
+  updateTask() {
+    NewTask.taskService.updateTask('-KvQ9tfF9ahJxLw56z_6', {title: '找管道工'});
   }
 }
 reactMixin(NewTask.prototype, ReactFireMixin);

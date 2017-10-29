@@ -24,6 +24,10 @@ export class TaskService {
   }
 
   deleteTask(taskKey: string) {
-    const deletedTask = this.tasks.remove(taskKey);
+    const deletedTask = this.tasks.child(taskKey).remove();
+  }
+
+  updateTask(taskKey: string, task: Task){
+    this.tasks.child(taskKey).update(task);
   }
 }
