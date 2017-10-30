@@ -9,8 +9,7 @@
         <button ng-click='click()' class="btn btn-primary">test</button>
     </div>
     
-    <!-- users -->
-    
+    <!-- users -->    
     <div class="col-md-12">
         <h2>users</h2>
         <table class="table table-striped table-hover">
@@ -25,5 +24,15 @@
             </tr>
             
         </table>
+    </div>
+    
+    <!-- users from mvc -->
+    <div class="col-md-12">
+        <h2>users from mvc</h2>
+        <ul>
+            <li ng-repeat="user in users2">
+                {{user}}
+            </li>
+        </ul>
     </div>
 </div>

@@ -33,6 +33,13 @@ demo2App.controller('homeController', ['$scope', '$http', 'weatherService', 'use
    userService.getUsers(function(users){ 
            $scope.users =  users; 
    });
+    
+    $http.get('http://localhost:44912/users')
+    .then(function(response){
+        $scope.users2 = response.data;
+    }, function(response){
+        console.log(response);
+    })
 }]);
 
 demo2App.controller('forecastController', ['$scope', '$routeParams', function($scope, $routeParams){
